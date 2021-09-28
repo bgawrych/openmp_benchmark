@@ -1,0 +1,12 @@
+Name;Descriptor;Mode;Warmup;Iterations;Duration;Mean;StdDev;
+EmptyForLoopBenchmark;iterations:1000_;PARALLEL;5;18000000;19.4364;1.05719e-06;2.93037e-07;
+
+EmptyForLoopBenchmark;iterations:10000_;PARALLEL;5;2000000;6.50515;3.23e-06;4.41441e-07;
+
+EmptyForLoopBenchmark;iterations:100000_;PARALLEL;5;1000000;25.3403;2.53177e-05;5.2196e-07;
+
+EmptyForLoopBenchmark;iterations:1000000_;PARALLEL;5;200000;48.9815;0.000244885;1.94097e-06;
+
+EmptyForLoopBenchmark;iterations:10000000_;PARALLEL;5;20000;48.8102;0.00244049;1.83924e-05;
+
+

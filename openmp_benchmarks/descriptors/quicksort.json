@@ -1,0 +1,34 @@
+[
+    {
+        "name":"QuickSort",
+        "properties": {
+            "warmup": 5,
+            "rounds": 6000,
+            "size": 10000
+        }
+    },
+    {
+        "name":"QuickSort",
+        "properties": {
+            "warmup": 5,
+            "rounds": 1000,
+            "size": 100000
+        }
+    },
+    {
+        "name":"QuickSort",
+        "properties": {
+            "warmup": 5,
+            "rounds": 100,
+            "size": 1000000
+        }
+    },
+        {
+        "name":"QuickSort",
+        "properties": {
+            "warmup": 5,
+            "rounds": 25,
+            "size": 10000000
+        }
+    }
+]

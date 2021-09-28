@@ -1,0 +1,94 @@
+[
+    {
+        "name":"EmptyForLoopBenchmark",
+        "properties": {
+            "warmup": 5,
+            "rounds": 1000,
+            "iterations": 1000000
+        }
+    },
+    {
+        "name":"BatchNorm",
+        "validate": true,
+        "properties": {
+            "warmup": 5,
+            "rounds": 1000,
+            "N": 32,
+            "C": 3,
+            "H": 224,
+            "W": 224
+        }
+    },
+    {
+        "name":"Convolution2D",
+        "validate": true,
+        "properties": {
+            "warmup": 5,
+            "rounds": 1000,
+            "N": 32,
+            "H": 224,
+            "W": 224,
+            "kernel": 3
+        }
+    },
+    {
+        "name":"CooleyTukeyFFT",
+        "validate": true,
+        "properties": {
+            "warmup": 5,
+            "rounds": 1000,
+            "size": 10000
+        }
+    },
+    {
+        "name":"MatrixMultiplication",
+        "validate": true,
+        "properties": {
+            "warmup": 5,
+            "rounds": 1000,
+            "N": 128,
+            "M": 128,
+            "K": 128
+        }
+    },
+    {
+        "name":"Linear",
+        "validate": true,
+        "properties": {
+            "warmup": 5,
+            "rounds": 1000,
+            "size": 10000,
+            "static_size": 128
+        }
+    },
+    {
+        "name":"QuickSort",
+        "validate": true,
+        "properties": {
+            "warmup": 5,
+            "rounds": 1000,
+            "size": 100000
+        }
+    },
+    {
+        "name":"WaveEquation",
+        "validate": true,
+        "properties": {
+            "warmup": 5,
+            "rounds": 1000,
+            "M": 100,
+            "N": 100,
+            "K": 100,
+            "static_size":100
+        }
+    },
+    {
+        "name":"PrimeTest",
+        "validate": true,
+        "properties": {
+            "warmup": 5,
+            "rounds": 10,
+            "size": 10000000
+        }
+    }
+]

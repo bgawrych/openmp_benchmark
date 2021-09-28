@@ -1,0 +1,62 @@
+[
+    {
+        "name":"WaveEquation",
+        "properties": {
+            "warmup": 5,
+            "rounds": 5000,
+            "N": 1000,
+            "M": 1000,
+            "K": 10
+        }
+    },
+    {
+        "name":"WaveEquation",
+        "properties": {
+            "warmup": 5,
+            "rounds": 500,
+            "N": 1000,
+            "M": 1000,
+            "K": 100
+        }
+    },
+    {
+        "name":"WaveEquation",
+        "properties": {
+            "warmup": 5,
+            "rounds": 400,
+            "N": 2500,
+            "M": 2500,
+            "K": 10
+        }
+    },
+    {
+        "name":"WaveEquation",
+        "properties": {
+            "warmup": 5,
+            "rounds": 25,
+            "N": 2500,
+            "M": 2500,
+            "K": 100
+        }
+    },
+    {
+        "name":"WaveEquation",
+        "properties": {
+            "warmup": 5,
+            "rounds": 50,
+            "N": 5000,
+            "M": 5000,
+            "K": 10
+        }
+    },
+    {
+        "name":"WaveEquation",
+        "properties": {
+            "warmup": 2,
+            "rounds": 10,
+            "N": 5000,
+            "M": 5000,
+            "K": 100
+        }
+    }
+]

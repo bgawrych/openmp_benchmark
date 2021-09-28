@@ -1,0 +1,12 @@
+Name;Descriptor;Mode;Warmup;Iterations;Duration;Mean;StdDev;
+Convolution2D;N:32_H:224_W:224_kernel:7_;Parallel_No_Collapse;5;300;69.609;0.23203;0.000639243;
+Convolution2D;N:32_H:224_W:224_kernel:7_;Parallel_Collapse_2;5;300;2.9795;0.00993144;0.000221897;
+Convolution2D;N:32_H:224_W:224_kernel:7_;Parallel_Collapse_3;5;300;0.922805;0.00307585;0.000309381;
+Convolution2D;N:32_H:224_W:224_kernel:7_;Serial;5;300;19.0654;0.0635513;0.000403632;
+
+Convolution2D;N:64_H:56_W:56_kernel:3_;Parallel_No_Collapse;5;2000;10.1248;0.00506221;0.000143462;
+Convolution2D;N:64_H:56_W:56_kernel:3_;Parallel_Collapse_2;5;2000;1.54276;0.000771293;6.625e-05;
+Convolution2D;N:64_H:56_W:56_kernel:3_;Parallel_Collapse_3;5;2000;0.78412;0.000392008;1.35992e-05;
+Convolution2D;N:64_H:56_W:56_kernel:3_;Serial;5;2000;3.53443;0.00176718;1.22898e-05;
+
+

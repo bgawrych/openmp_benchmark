@@ -1,0 +1,42 @@
+[
+    {
+        "name":"MatrixMultiplication",
+        "properties": {
+            "warmup": 5,
+            "rounds": 500,
+            "N": 10000,
+            "M": 10000,
+            "K": 1
+        }
+    },
+    {
+        "name":"MatrixMultiplication",
+        "properties": {
+            "warmup": 5,
+            "rounds": 10000,
+            "N": 100,
+            "M": 100,
+            "K": 100
+        }
+    },
+    {
+        "name":"MatrixMultiplication",
+        "properties": {
+            "warmup": 5,
+            "rounds": 500,
+            "N": 500,
+            "M": 500,
+            "K": 500
+        }
+    },
+    {
+        "name":"MatrixMultiplication",
+        "properties": {
+            "warmup": 2,
+            "rounds": 200,
+            "N": 1000,
+            "M": 1000,
+            "K": 1000
+        }
+    }
+]

@@ -1,0 +1,42 @@
+[
+    {
+        "name":"PrimeTest",
+        "properties": {
+            "warmup": 5,
+            "rounds": 120000,
+            "size": 1000
+        }
+    },
+    {
+        "name":"PrimeTest",
+        "properties": {
+            "warmup": 5,
+            "rounds": 40000,
+            "size": 10000
+        }
+    },
+    {
+        "name":"PrimeTest",
+        "properties": {
+            "warmup": 5,
+            "rounds": 6000,
+            "size": 100000
+        }
+    },
+    {
+        "name":"PrimeTest",
+        "properties": {
+            "warmup": 5,
+            "rounds": 600,
+            "size": 1000000
+        }
+    },
+        {
+        "name":"PrimeTest",
+        "properties": {
+            "warmup": 5,
+            "rounds": 70,
+            "size": 10000000
+        }
+    }
+]

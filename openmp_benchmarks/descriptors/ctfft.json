@@ -1,0 +1,42 @@
+[
+    {
+        "name":"CooleyTukeyFFT",
+        "properties": {
+            "warmup": 5,
+            "rounds": 20000,
+            "size": 1000
+        }
+    },
+    {
+        "name":"CooleyTukeyFFT",
+        "properties": {
+            "warmup": 5,
+            "rounds": 2000,
+            "size": 10000
+        }
+    },
+    {
+        "name":"CooleyTukeyFFT",
+        "properties": {
+            "warmup": 5,
+            "rounds": 1000,
+            "size": 100000
+        }
+    },
+    {
+        "name":"CooleyTukeyFFT",
+        "properties": {
+            "warmup": 5,
+            "rounds": 100,
+            "size": 1000000
+        }
+    },
+        {
+        "name":"CooleyTukeyFFT",
+        "properties": {
+            "warmup": 5,
+            "rounds": 20,
+            "size": 10000000
+        }
+    }
+]

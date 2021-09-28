@@ -1,0 +1,25 @@
+Architektura:           x86_64
+Tryb(y) pracy CPU:      32-bit, 64-bit
+Kolejność bajtów:       Little Endian
+CPU:                    8
+Lista aktywnych CPU:    0-7
+Wątków na rdzeń:        2
+Rdzeni na gniazdo:      4
+Gniazd:                 1
+Węzłów NUMA:            1
+ID producenta:          GenuineIntel
+Rodzina CPU:            6
+Model:                  158
+Nazwa modelu:           Intel(R) Core(TM) i7-7700 CPU @ 3.60GHz
+Wersja:                 9
+CPU MHz:                800.295
+CPU max MHz:            4200,0000
+CPU min MHz:            800,0000
+BogoMIPS:               7200.00
+Wirtualizacja:          VT-x
+Cache L1d:              32K
+Cache L1i:              32K
+Cache L2:               256K
+Cache L3:               8192K
+Procesory węzła NUMA 0: 0-7
+Flagi:                  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp md_clear flush_l1d

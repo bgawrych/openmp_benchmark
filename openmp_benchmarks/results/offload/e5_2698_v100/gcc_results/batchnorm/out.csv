@@ -1,0 +1,14 @@
+Name;Descriptor;Mode;Warmup;Iterations;Duration;Mean;StdDev;
+BatchNorm;N:32_C:1_H:224_W:224_;RunParallel_opt;5;500;18.6253;0.0372503;0.0148183;
+BatchNorm;N:32_C:1_H:224_W:224_;Serial;5;500;2.28088;0.00456165;0.000465676;
+
+BatchNorm;N:32_C:64_H:112_W:112_;RunParallel_opt;5;50;17.7652;0.355304;0.0579445;
+BatchNorm;N:32_C:64_H:112_W:112_;Serial;5;50;4.0408;0.0808156;0.000504459;
+
+BatchNorm;N:32_C:256_H:112_W:112_;RunParallel_opt;5;20;23.3329;1.16665;0.680852;
+BatchNorm;N:32_C:256_H:112_W:112_;Serial;5;20;6.46689;0.323344;0.00117089;
+
+BatchNorm;N:32_C:256_H:56_W:56_;RunParallel_opt;5;50;18.9524;0.379049;0.274489;
+BatchNorm;N:32_C:256_H:56_W:56_;Serial;5;50;4.12061;0.0824119;0.000162372;
+
+

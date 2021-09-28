@@ -1,0 +1,47 @@
+[
+    {
+        "name":"BatchNorm",
+        "properties": {
+            "warmup": 5,
+            "rounds": 500,
+            "N": 32,
+            "C": 1,
+            "H": 224,
+            "W": 224
+        }
+    },
+    {
+        "name":"BatchNorm",
+        "properties": {
+            "warmup": 5,
+            "rounds": 50,
+            "N": 32,
+            "C": 64,
+            "H": 112,
+            "W": 112
+        }
+    },
+    {
+        "name":"BatchNorm",
+        "properties": {
+            "warmup": 5,
+            "rounds": 20,
+            "N": 32,
+            "C": 256,
+            "H": 112,
+            "W": 112
+        }
+    },
+    {
+        "name":"BatchNorm",
+        "properties": {
+            "warmup": 5,
+            "rounds": 50,
+            "N": 32,
+            "C": 256,
+            "H": 56,
+            "W": 56
+        }
+    }
+    
+]

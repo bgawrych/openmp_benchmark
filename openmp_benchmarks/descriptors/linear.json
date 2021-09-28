@@ -1,0 +1,50 @@
+[
+    {
+        "name":"Linear",
+        "properties": {
+            "warmup": 5,
+            "rounds": 1000000,
+            "size":10000
+        }
+    },
+    {
+        "name":"Linear",
+        "properties": {
+            "warmup": 5,
+            "rounds": 600000,
+            "size":100000
+        }
+    },
+    {
+        "name":"Linear",
+        "properties": {
+            "warmup": 5,
+            "rounds": 300000,
+            "size":1000000
+        }
+    },
+    {
+        "name":"Linear",
+        "properties": {
+            "warmup": 5,
+            "rounds": 500000,
+            "size":1000000
+        }
+    },
+    {
+        "name":"Linear",
+        "properties": {
+            "warmup": 5,
+            "rounds": 1000000,
+            "size":100000
+        }
+    },
+    {
+        "name":"Linear",
+        "properties": {
+            "warmup": 5,
+            "rounds": 400000,
+            "size": 1000000
+        }
+    }
+]

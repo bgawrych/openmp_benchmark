@@ -1,0 +1,550 @@
+++ grep -c '^processor' /proc/cpuinfo
++ num_cpus=64
++ rm -rf build/build.ninja build/CMakeCache.txt build/CMakeFiles build/cmake_install.cmake build/OpenMPBench build/OpenMPOffloadBench build/rules.ninja
++ ./linux_build.sh -c gcc -t
+Setting compiler to gcc
+Building with offload directives
+-- The C compiler identification is GNU 10.2.0
+-- The CXX compiler identification is GNU 10.2.0
+-- Check for working C compiler: /home/s165619/magisterka/offloading_compilers/apps/bin/gcc
+-- Check for working C compiler: /home/s165619/magisterka/offloading_compilers/apps/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /home/s165619/magisterka/offloading_compilers/apps/bin/g++
+-- Check for working CXX compiler: /home/s165619/magisterka/offloading_compilers/apps/bin/g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found OpenMP_C: -fopenmp (found version "4.5") 
+-- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+-- Found OpenMP: TRUE (found version "4.5")  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/s165619/magisterka/openmp_benchmarks/build
+[1/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/BenchEngine.cpp.o
+[2/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/EmptyForLoopBenchmark.cpp.o
+[3/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/PrimeTest.cpp.o
+[4/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/CooleyTukeyFFT.cpp.o
+[5/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/BenchEngine.cpp.o
+[6/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/EmptyForLoopBenchmark.cpp.o
+[7/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/Linear.cpp.o
+[8/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/OpenMPBenchmark.cpp.o
+[9/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/Linear.cpp.o
+[10/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/OpenMPBenchmark.cpp.o
+[11/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/QuickSort.cpp.o
+[12/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/BatchNorm.cpp.o
+[13/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/PrimeTest.cpp.o
+[14/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/Convolution2D.cpp.o
+[15/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/MatrixMultiplication.cpp.o
+[16/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/QuickSort.cpp.o
+[17/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/WaveEquation.cpp.o
+[18/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/MatrixMultiplication.cpp.o
+[19/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/CooleyTukeyFFT.cpp.o
+[20/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/Convolution2D.cpp.o
+[21/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/WaveEquation.cpp.o
+[22/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/BatchNorm.cpp.o
+[23/24] Linking CXX executable OpenMPBench
+[24/24] Linking CXX executable OpenMPOffloadBench
++ benchmarks=(linear conv batchnorm matmul wave)
++ for b in ${benchmarks[@]}
++ result_folder=work_results_offload/gcc_results/linear
++ mkdir -p work_results_offload/gcc_results/linear
++ ./build/OpenMPOffloadBench offloading_descriptors/linear.json work_results_offload/gcc_results/linear/out.csv
+[INFO] Starting benchmark engine!
+[INFO] Executing following benchmarks:
+[INFO]  	- Linear
+[INFO]  	- Linear
+[INFO]  	- Linear
+[INFO] [Linear] Initializing benchmark
+[INFO] size:10000 
+[INFO] [Linear] Starting benchmark
+[INFO] PARALLEL_FOR Warmup:5 Rounds: 10000 Time: 19.4013 Mean: 0.00194009 StdDev: 9.93259e-05
+[INFO] PARALLEL_FOR_SIMD Warmup:5 Rounds: 10000 Time: 19.5439 Mean: 0.00195433 StdDev: 0.000157239
+[INFO] [Linear] Finished parallel benchmark
+[INFO] SERIAL Warmup:5 Rounds: 10000 Time: 0.0212214 Mean: 2.09676e-06 StdDev: 5.74339e-07
+[INFO] [Linear] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [Linear] Initializing benchmark
+[INFO] size:100000 
+[INFO] [Linear] Starting benchmark
+[INFO] PARALLEL_FOR Warmup:5 Rounds: 10000 Time: 21.8625 Mean: 0.0021862 StdDev: 0.000229672
+[INFO] PARALLEL_FOR_SIMD Warmup:5 Rounds: 10000 Time: 22.5134 Mean: 0.00225128 StdDev: 7.44663e-05
+[INFO] [Linear] Finished parallel benchmark
+[INFO] SERIAL Warmup:5 Rounds: 10000 Time: 0.204271 Mean: 2.03879e-05 StdDev: 3.79083e-07
+[INFO] [Linear] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [Linear] Initializing benchmark
+[INFO] size:1000000 
+[INFO] [Linear] Starting benchmark
+[INFO] PARALLEL_FOR Warmup:5 Rounds: 2000 Time: 6.56159 Mean: 0.00328072 StdDev: 3.10664e-05
+[INFO] PARALLEL_FOR_SIMD Warmup:5 Rounds: 2000 Time: 6.55454 Mean: 0.00327723 StdDev: 0.000113855
+[INFO] [Linear] Finished parallel benchmark
+[INFO] SERIAL Warmup:5 Rounds: 2000 Time: 0.594233 Mean: 0.00029706 StdDev: 2.32834e-06
+[INFO] [Linear] Finished serial benchmark
+[INFO] ==============================================================
++ for b in ${benchmarks[@]}
++ result_folder=work_results_offload/gcc_results/conv
++ mkdir -p work_results_offload/gcc_results/conv
++ ./build/OpenMPOffloadBench offloading_descriptors/conv.json work_results_offload/gcc_results/conv/out.csv
+[INFO] Starting benchmark engine!
+[INFO] Executing following benchmarks:
+[INFO]  	- Convolution2D
+[INFO]  	- Convolution2D
+[INFO]  	- Convolution2D
+[INFO] [Convolution2D] Initializing benchmark
+[INFO] N:32 H:224 W:224 kernel:7 
+[INFO] [Convolution2D] Starting benchmark
+[INFO] Parallel_No_Collapse Warmup:5 Rounds: 30 Time: 3.28832 Mean: 0.109611 StdDev: 0.000291264
+[INFO] Parallel_Collapse_2 Warmup:5 Rounds: 30 Time: 0.267867 Mean: 0.00892885 StdDev: 5.41779e-05
+[INFO] Parallel_Collapse_3 Warmup:5 Rounds: 30 Time: 0.264972 Mean: 0.00883234 StdDev: 7.09418e-05
+[INFO] [Convolution2D] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 30 Time: 1.88132 Mean: 0.0627104 StdDev: 0.000409028
+[INFO] [Convolution2D] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [Convolution2D] Initializing benchmark
+[INFO] N:64 H:56 W:56 kernel:3 
+[INFO] [Convolution2D] Starting benchmark
+[INFO] Parallel_No_Collapse Warmup:5 Rounds: 2000 Time: 6.02018 Mean: 0.00301004 StdDev: 8.31538e-05
+[INFO] Parallel_Collapse_2 Warmup:5 Rounds: 2000 Time: 3.93834 Mean: 0.00196911 StdDev: 2.91306e-05
+[INFO] Parallel_Collapse_3 Warmup:5 Rounds: 2000 Time: 3.96921 Mean: 0.00198455 StdDev: 0.000351726
+[INFO] [Convolution2D] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 2000 Time: 3.09128 Mean: 0.00154559 StdDev: 1.45569e-05
+[INFO] [Convolution2D] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [Convolution2D] Initializing benchmark
+[INFO] N:1024 H:7 W:7 kernel:3 
+[INFO] [Convolution2D] Starting benchmark
+[INFO] Parallel_No_Collapse Warmup:5 Rounds: 2000 Time: 3.97679 Mean: 0.00198835 StdDev: 3.59546e-05
+[INFO] Parallel_Collapse_2 Warmup:5 Rounds: 2000 Time: 3.95806 Mean: 0.00197897 StdDev: 1.04226e-05
+[INFO] Parallel_Collapse_3 Warmup:5 Rounds: 2000 Time: 3.95825 Mean: 0.00197908 StdDev: 7.16749e-06
+[INFO] [Convolution2D] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 2000 Time: 0.433162 Mean: 0.000216553 StdDev: 1.61408e-06
+[INFO] [Convolution2D] Finished serial benchmark
+[INFO] ==============================================================
++ for b in ${benchmarks[@]}
++ result_folder=work_results_offload/gcc_results/batchnorm
++ mkdir -p work_results_offload/gcc_results/batchnorm
++ ./build/OpenMPOffloadBench offloading_descriptors/batchnorm.json work_results_offload/gcc_results/batchnorm/out.csv
+[INFO] Starting benchmark engine!
+[INFO] Executing following benchmarks:
+[INFO]  	- BatchNorm
+[INFO]  	- BatchNorm
+[INFO]  	- BatchNorm
+[INFO]  	- BatchNorm
+[INFO] [BatchNorm] Initializing benchmark
+[INFO] N:32 C:1 H:224 W:224 
+[INFO] [BatchNorm] Starting benchmark
+[INFO] RunParallel_opt Warmup:5 Rounds: 500 Time: 8.51048 Mean: 0.0170209 StdDev: 0.000596643
+[INFO] [BatchNorm] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 500 Time: 2.00564 Mean: 0.00401121 StdDev: 1.75244e-05
+[INFO] [BatchNorm] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [BatchNorm] Initializing benchmark
+[INFO] N:32 C:64 H:112 W:112 
+[INFO] [BatchNorm] Starting benchmark
+[INFO] RunParallel_opt Warmup:5 Rounds: 50 Time: 8.13692 Mean: 0.162738 StdDev: 0.00328821
+[INFO] [BatchNorm] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 50 Time: 3.7624 Mean: 0.0752478 StdDev: 0.00653649
+[INFO] [BatchNorm] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [BatchNorm] Initializing benchmark
+[INFO] N:32 C:256 H:112 W:112 
+[INFO] [BatchNorm] Starting benchmark
+[INFO] RunParallel_opt Warmup:5 Rounds: 20 Time: 12.746 Mean: 0.637299 StdDev: 0.00817754
+[INFO] [BatchNorm] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 20 Time: 6.01556 Mean: 0.300778 StdDev: 0.00220919
+[INFO] [BatchNorm] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [BatchNorm] Initializing benchmark
+[INFO] N:32 C:256 H:56 W:56 
+[INFO] [BatchNorm] Starting benchmark
+[INFO] RunParallel_opt Warmup:5 Rounds: 50 Time: 9.22296 Mean: 0.184459 StdDev: 0.00322053
+[INFO] [BatchNorm] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 50 Time: 3.86755 Mean: 0.0773507 StdDev: 0.00658984
+[INFO] [BatchNorm] Finished serial benchmark
+[INFO] ==============================================================
++ for b in ${benchmarks[@]}
++ result_folder=work_results_offload/gcc_results/matmul
++ mkdir -p work_results_offload/gcc_results/matmul
++ ./build/OpenMPOffloadBench offloading_descriptors/matmul.json work_results_offload/gcc_results/matmul/out.csv
+[INFO] Starting benchmark engine!
+[INFO] Executing following benchmarks:
+[INFO]  	- MatrixMultiplication
+[INFO]  	- MatrixMultiplication
+[INFO]  	- MatrixMultiplication
+[INFO]  	- MatrixMultiplication
+[INFO] [MatrixMultiplication] Initializing benchmark
+[INFO] N:10000 M:10000 K:1 
+[INFO] [MatrixMultiplication] Starting benchmark
+[INFO] Parallel_Collapse Warmup:5 Rounds: 50 Time: 0.63566 Mean: 0.0127132 StdDev: 0.00123157
+[INFO] Parallel_Normal Warmup:5 Rounds: 50 Time: 0.617337 Mean: 0.0123467 StdDev: 6.84906e-05
+[INFO] [MatrixMultiplication] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 50 Time: 5.77624 Mean: 0.115525 StdDev: 0.0119307
+[INFO] [MatrixMultiplication] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [MatrixMultiplication] Initializing benchmark
+[INFO] N:100 M:100 K:100 
+[INFO] [MatrixMultiplication] Starting benchmark
+[INFO] Parallel_Collapse Warmup:5 Rounds: 1000 Time: 2.41176 Mean: 0.00241173 StdDev: 0.00010525
+[INFO] Parallel_Normal Warmup:5 Rounds: 1000 Time: 2.83515 Mean: 0.00283511 StdDev: 1.67712e-05
+[INFO] [MatrixMultiplication] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 1000 Time: 1.05227 Mean: 0.00105224 StdDev: 6.12831e-06
+[INFO] [MatrixMultiplication] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [MatrixMultiplication] Initializing benchmark
+[INFO] N:500 M:500 K:500 
+[INFO] [MatrixMultiplication] Starting benchmark
+[INFO] Parallel_Collapse Warmup:5 Rounds: 50 Time: 1.36204 Mean: 0.0272408 StdDev: 0.0019069
+[INFO] Parallel_Normal Warmup:5 Rounds: 50 Time: 1.76782 Mean: 0.0353562 StdDev: 6.44756e-05
+[INFO] [MatrixMultiplication] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 50 Time: 7.29396 Mean: 0.145879 StdDev: 0.000337822
+[INFO] [MatrixMultiplication] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [MatrixMultiplication] Initializing benchmark
+[INFO] N:1000 M:1000 K:1000 
+[INFO] [MatrixMultiplication] Starting benchmark
+[INFO] Parallel_Collapse Warmup:2 Rounds: 20 Time: 7.12369 Mean: 0.356184 StdDev: 0.000603486
+[INFO] Parallel_Normal Warmup:2 Rounds: 20 Time: 6.1631 Mean: 0.308155 StdDev: 0.000368307
+[INFO] [MatrixMultiplication] Finished parallel benchmark
+[INFO] Serial Warmup:2 Rounds: 20 Time: 24.3777 Mean: 1.21888 StdDev: 0.00110737
+[INFO] [MatrixMultiplication] Finished serial benchmark
+[INFO] ==============================================================
++ for b in ${benchmarks[@]}
++ result_folder=work_results_offload/gcc_results/wave
++ mkdir -p work_results_offload/gcc_results/wave
++ ./build/OpenMPOffloadBench offloading_descriptors/wave.json work_results_offload/gcc_results/wave/out.csv
+[INFO] Starting benchmark engine!
+[INFO] Executing following benchmarks:
+[INFO]  	- WaveEquation
+[INFO]  	- WaveEquation
+[INFO]  	- WaveEquation
+[INFO]  	- WaveEquation
+[INFO]  	- WaveEquation
+[INFO]  	- WaveEquation
+[INFO] [WaveEquation] Initializing benchmark
+[INFO] M:1000 N:1000 K:10 
+[INFO] [WaveEquation] Starting benchmark
+[INFO] Offload Warmup:5 Rounds: 100 Time: 2.86099 Mean: 0.0286098 StdDev: 0.000619277
+[INFO] [WaveEquation] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 100 Time: 1.01336 Mean: 0.0101336 StdDev: 9.483e-05
+[INFO] [WaveEquation] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [WaveEquation] Initializing benchmark
+[INFO] M:1000 N:1000 K:100 
+[INFO] [WaveEquation] Starting benchmark
+[INFO] Offload Warmup:5 Rounds: 30 Time: 8.35274 Mean: 0.278424 StdDev: 0.00181279
+[INFO] [WaveEquation] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 30 Time: 3.28453 Mean: 0.109484 StdDev: 0.00131543
+[INFO] [WaveEquation] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [WaveEquation] Initializing benchmark
+[INFO] M:2500 N:2500 K:10 
+[INFO] [WaveEquation] Starting benchmark
+[INFO] Offload Warmup:5 Rounds: 30 Time: 3.33839 Mean: 0.11128 StdDev: 3.13362e-05
+[INFO] [WaveEquation] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 30 Time: 3.02835 Mean: 0.100945 StdDev: 0.00030993
+[INFO] [WaveEquation] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [WaveEquation] Initializing benchmark
+[INFO] M:2500 N:2500 K:100 
+[INFO] [WaveEquation] Starting benchmark
+[INFO] Offload Warmup:1 Rounds: 10 Time: 9.59979 Mean: 0.959979 StdDev: 0.0100919
+[INFO] [WaveEquation] Finished parallel benchmark
+[INFO] Serial Warmup:1 Rounds: 10 Time: 11.0394 Mean: 1.10394 StdDev: 0.0124438
+[INFO] [WaveEquation] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [WaveEquation] Initializing benchmark
+[INFO] M:5000 N:5000 K:10 
+[INFO] [WaveEquation] Starting benchmark
+[INFO] Offload Warmup:1 Rounds: 20 Time: 8.20156 Mean: 0.410078 StdDev: 0.0102551
+[INFO] [WaveEquation] Finished parallel benchmark
+[INFO] Serial Warmup:1 Rounds: 20 Time: 8.23803 Mean: 0.411901 StdDev: 0.0122957
+[INFO] [WaveEquation] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [WaveEquation] Initializing benchmark
+[INFO] M:5000 N:5000 K:100 
+[INFO] [WaveEquation] Starting benchmark
+[INFO] Offload Warmup:1 Rounds: 5 Time: 17.0132 Mean: 3.40264 StdDev: 0.0271504
+[INFO] [WaveEquation] Finished parallel benchmark
+[INFO] Serial Warmup:1 Rounds: 5 Time: 22.5592 Mean: 4.51185 StdDev: 0.0215797
+[INFO] [WaveEquation] Finished serial benchmark
+[INFO] ==============================================================
++ rm -rf build/build.ninja build/CMakeCache.txt build/CMakeFiles build/cmake_install.cmake build/OpenMPBench build/OpenMPOffloadBench build/rules.ninja
++ ./linux_build.sh -c clang -t
+Setting compiler to clang
+Building with offload directives
+-- The C compiler identification is Clang 11.1.0
+-- The CXX compiler identification is Clang 11.1.0
+-- Check for working C compiler: /home/s165619/magisterka/offloading_compilers/apps/bin/clang
+-- Check for working C compiler: /home/s165619/magisterka/offloading_compilers/apps/bin/clang -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /home/s165619/magisterka/offloading_compilers/apps/bin/clang++
+-- Check for working CXX compiler: /home/s165619/magisterka/offloading_compilers/apps/bin/clang++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found OpenMP_C: -fopenmp=libomp  
+-- Found OpenMP_CXX: -fopenmp=libomp  
+-- Found OpenMP: TRUE   
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/s165619/magisterka/openmp_benchmarks/build
+[1/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/BenchEngine.cpp.o
+[2/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/BenchEngine.cpp.o
+[3/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/PrimeTest.cpp.o
+[4/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/EmptyForLoopBenchmark.cpp.o
+[5/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/OpenMPBenchmark.cpp.o
+[6/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/Linear.cpp.o
+warning: loop not vectorized: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+1 warning generated.
+warning: <unknown>:0:0: loop not vectorized: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+1 warning generated.
+[7/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/QuickSort.cpp.o
+[8/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/CooleyTukeyFFT.cpp.o
+[9/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/EmptyForLoopBenchmark.cpp.o
+[10/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/QuickSort.cpp.o
+[11/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/MatrixMultiplication.cpp.o
+[12/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/OpenMPBenchmark.cpp.o
+[13/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/PrimeTest.cpp.o
+[14/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/MatrixMultiplication.cpp.o
+[15/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/BatchNorm.cpp.o
+[16/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/WaveEquation.cpp.o
+[17/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/CooleyTukeyFFT.cpp.o
+[18/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/Convolution2D.cpp.o
+[19/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/Linear.cpp.o
+[20/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/Convolution2D.cpp.o
+[21/24] Building CXX object CMakeFiles/OpenMPBench.dir/src/WaveEquation.cpp.o
+[22/24] Building CXX object CMakeFiles/OpenMPOffloadBench.dir/target/src/BatchNorm.cpp.o
+[23/24] Linking CXX executable OpenMPBench
+[24/24] Linking CXX executable OpenMPOffloadBench
++ benchmarks=(linear conv batchnorm matmul wave)
++ for b in ${benchmarks[@]}
++ result_folder=work_results_offload/clang_results/linear
++ mkdir -p work_results_offload/clang_results/linear
++ ./build/OpenMPOffloadBench offloading_descriptors/linear.json work_results_offload/clang_results/linear/out.csv
+[INFO] Starting benchmark engine!
+[INFO] Executing following benchmarks:
+[INFO]  	- Linear
+[INFO]  	- Linear
+[INFO]  	- Linear
+[INFO] [Linear] Initializing benchmark
+[INFO] size:10000 
+[INFO] [Linear] Starting benchmark
+[INFO] PARALLEL_FOR Warmup:5 Rounds: 10000 Time: 2.45724 Mean: 0.00024569 StdDev: 3.74856e-05
+[INFO] PARALLEL_FOR_SIMD Warmup:5 Rounds: 10000 Time: 2.51369 Mean: 0.000251332 StdDev: 4.66649e-05
+[INFO] [Linear] Finished parallel benchmark
+[INFO] SERIAL Warmup:5 Rounds: 10000 Time: 0.0115221 Mean: 1.12696e-06 StdDev: 4.75211e-07
+[INFO] [Linear] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [Linear] Initializing benchmark
+[INFO] size:100000 
+[INFO] [Linear] Starting benchmark
+[INFO] PARALLEL_FOR Warmup:5 Rounds: 10000 Time: 5.49172 Mean: 0.000549125 StdDev: 1.52518e-05
+[INFO] PARALLEL_FOR_SIMD Warmup:5 Rounds: 10000 Time: 5.46014 Mean: 0.000545962 StdDev: 8.93748e-06
+[INFO] [Linear] Finished parallel benchmark
+[INFO] SERIAL Warmup:5 Rounds: 10000 Time: 0.119983 Mean: 1.19715e-05 StdDev: 6.65738e-07
+[INFO] [Linear] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [Linear] Initializing benchmark
+[INFO] size:1000000 
+[INFO] [Linear] Starting benchmark
+[INFO] PARALLEL_FOR Warmup:5 Rounds: 2000 Time: 6.29114 Mean: 0.00314551 StdDev: 4.36355e-05
+[INFO] PARALLEL_FOR_SIMD Warmup:5 Rounds: 2000 Time: 6.27228 Mean: 0.00313608 StdDev: 4.12505e-05
+[INFO] [Linear] Finished parallel benchmark
+[INFO] SERIAL Warmup:5 Rounds: 2000 Time: 0.59181 Mean: 0.000295844 StdDev: 1.57515e-06
+[INFO] [Linear] Finished serial benchmark
+[INFO] ==============================================================
++ for b in ${benchmarks[@]}
++ result_folder=work_results_offload/clang_results/conv
++ mkdir -p work_results_offload/clang_results/conv
++ ./build/OpenMPOffloadBench offloading_descriptors/conv.json work_results_offload/clang_results/conv/out.csv
+[INFO] Starting benchmark engine!
+[INFO] Executing following benchmarks:
+[INFO]  	- Convolution2D
+[INFO]  	- Convolution2D
+[INFO]  	- Convolution2D
+[INFO] [Convolution2D] Initializing benchmark
+[INFO] N:32 H:224 W:224 kernel:7 
+[INFO] [Convolution2D] Starting benchmark
+[INFO] Parallel_No_Collapse Warmup:5 Rounds: 30 Time: 6.89972 Mean: 0.22999 StdDev: 0.000143996
+[INFO] Parallel_Collapse_2 Warmup:5 Rounds: 30 Time: 0.293519 Mean: 0.00978376 StdDev: 6.82848e-05
+[INFO] Parallel_Collapse_3 Warmup:5 Rounds: 30 Time: 0.102902 Mean: 0.00343 StdDev: 0.000283577
+[INFO] [Convolution2D] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 30 Time: 1.94417 Mean: 0.0648056 StdDev: 0.000459577
+[INFO] [Convolution2D] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [Convolution2D] Initializing benchmark
+[INFO] N:64 H:56 W:56 kernel:3 
+[INFO] [Convolution2D] Starting benchmark
+[INFO] Parallel_No_Collapse Warmup:5 Rounds: 2000 Time: 10.0471 Mean: 0.00502335 StdDev: 0.000135614
+[INFO] Parallel_Collapse_2 Warmup:5 Rounds: 2000 Time: 1.57126 Mean: 0.000785547 StdDev: 4.79076e-05
+[INFO] Parallel_Collapse_3 Warmup:5 Rounds: 2000 Time: 0.788018 Mean: 0.00039396 StdDev: 3.75355e-05
+[INFO] [Convolution2D] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 2000 Time: 3.89542 Mean: 0.00194767 StdDev: 1.25728e-05
+[INFO] [Convolution2D] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [Convolution2D] Initializing benchmark
+[INFO] N:1024 H:7 W:7 kernel:3 
+[INFO] [Convolution2D] Starting benchmark
+[INFO] Parallel_No_Collapse Warmup:5 Rounds: 2000 Time: 0.238057 Mean: 0.000118925 StdDev: 3.59551e-06
+[INFO] Parallel_Collapse_2 Warmup:5 Rounds: 2000 Time: 0.069206 Mean: 3.4537e-05 StdDev: 6.83969e-06
+[INFO] Parallel_Collapse_3 Warmup:5 Rounds: 2000 Time: 0.0431139 Mean: 2.15187e-05 StdDev: 2.43297e-06
+[INFO] [Convolution2D] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 2000 Time: 0.610075 Mean: 0.000305009 StdDev: 2.61624e-06
+[INFO] [Convolution2D] Finished serial benchmark
+[INFO] ==============================================================
++ for b in ${benchmarks[@]}
++ result_folder=work_results_offload/clang_results/batchnorm
++ mkdir -p work_results_offload/clang_results/batchnorm
++ ./build/OpenMPOffloadBench offloading_descriptors/batchnorm.json work_results_offload/clang_results/batchnorm/out.csv
+[INFO] Starting benchmark engine!
+[INFO] Executing following benchmarks:
+[INFO]  	- BatchNorm
+[INFO]  	- BatchNorm
+[INFO]  	- BatchNorm
+[INFO]  	- BatchNorm
+[INFO] [BatchNorm] Initializing benchmark
+[INFO] N:32 C:1 H:224 W:224 
+[INFO] [BatchNorm] Starting benchmark
+[INFO] RunParallel_opt Warmup:5 Rounds: 500 Time: 255.902 Mean: 0.511803 StdDev: 0.00149462
+[INFO] [BatchNorm] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 500 Time: 1.99563 Mean: 0.00399117 StdDev: 0.000135313
+[INFO] [BatchNorm] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [BatchNorm] Initializing benchmark
+[INFO] N:32 C:64 H:112 W:112 
+[INFO] [BatchNorm] Starting benchmark
+[INFO] RunParallel_opt Warmup:5 Rounds: 50 Time: 10.2399 Mean: 0.204797 StdDev: 0.00226453
+[INFO] [BatchNorm] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 50 Time: 3.71642 Mean: 0.0743281 StdDev: 0.00627525
+[INFO] [BatchNorm] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [BatchNorm] Initializing benchmark
+[INFO] N:32 C:256 H:112 W:112 
+[INFO] [BatchNorm] Starting benchmark
+[INFO] RunParallel_opt Warmup:5 Rounds: 20 Time: 7.23832 Mean: 0.361916 StdDev: 0.00101549
+[INFO] [BatchNorm] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 20 Time: 5.98036 Mean: 0.299018 StdDev: 0.0149898
+[INFO] [BatchNorm] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [BatchNorm] Initializing benchmark
+[INFO] N:32 C:256 H:56 W:56 
+[INFO] [BatchNorm] Starting benchmark
+[INFO] RunParallel_opt Warmup:5 Rounds: 50 Time: 5.09677 Mean: 0.101935 StdDev: 0.000703827
+[INFO] [BatchNorm] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 50 Time: 3.83166 Mean: 0.0766329 StdDev: 0.00647429
+[INFO] [BatchNorm] Finished serial benchmark
+[INFO] ==============================================================
++ for b in ${benchmarks[@]}
++ result_folder=work_results_offload/clang_results/matmul
++ mkdir -p work_results_offload/clang_results/matmul
++ ./build/OpenMPOffloadBench offloading_descriptors/matmul.json work_results_offload/clang_results/matmul/out.csv
+[INFO] Starting benchmark engine!
+[INFO] Executing following benchmarks:
+[INFO]  	- MatrixMultiplication
+[INFO]  	- MatrixMultiplication
+[INFO]  	- MatrixMultiplication
+[INFO]  	- MatrixMultiplication
+[INFO] [MatrixMultiplication] Initializing benchmark
+[INFO] N:10000 M:10000 K:1 
+[INFO] [MatrixMultiplication] Starting benchmark
+[INFO] Parallel_Collapse Warmup:5 Rounds: 50 Time: 0.199044 Mean: 0.0039806 StdDev: 0.000115855
+[INFO] Parallel_Normal Warmup:5 Rounds: 50 Time: 0.189751 Mean: 0.00379481 StdDev: 3.79928e-05
+[INFO] [MatrixMultiplication] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 50 Time: 5.7165 Mean: 0.11433 StdDev: 0.0120213
+[INFO] [MatrixMultiplication] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [MatrixMultiplication] Initializing benchmark
+[INFO] N:100 M:100 K:100 
+[INFO] [MatrixMultiplication] Starting benchmark
+[INFO] Parallel_Collapse Warmup:5 Rounds: 1000 Time: 0.0945699 Mean: 9.45077e-05 StdDev: 2.24808e-05
+[INFO] Parallel_Normal Warmup:5 Rounds: 1000 Time: 1.9592 Mean: 0.00195901 StdDev: 8.02423e-05
+[INFO] [MatrixMultiplication] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 1000 Time: 0.933483 Mean: 0.000933457 StdDev: 8.37677e-05
+[INFO] [MatrixMultiplication] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [MatrixMultiplication] Initializing benchmark
+[INFO] N:500 M:500 K:500 
+[INFO] [MatrixMultiplication] Starting benchmark
+[INFO] Parallel_Collapse Warmup:5 Rounds: 50 Time: 0.052953 Mean: 0.00105902 StdDev: 8.13535e-05
+[INFO] Parallel_Normal Warmup:5 Rounds: 50 Time: 2.20297 Mean: 0.0440591 StdDev: 1.00794e-05
+[INFO] [MatrixMultiplication] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 50 Time: 6.85539 Mean: 0.137108 StdDev: 0.000258251
+[INFO] [MatrixMultiplication] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [MatrixMultiplication] Initializing benchmark
+[INFO] N:1000 M:1000 K:1000 
+[INFO] [MatrixMultiplication] Starting benchmark
+[INFO] Parallel_Collapse Warmup:2 Rounds: 20 Time: 0.165717 Mean: 0.00828564 StdDev: 0.000328925
+[INFO] Parallel_Normal Warmup:2 Rounds: 20 Time: 5.21315 Mean: 0.260657 StdDev: 2.75207e-05
+[INFO] [MatrixMultiplication] Finished parallel benchmark
+[INFO] Serial Warmup:2 Rounds: 20 Time: 22.7485 Mean: 1.13742 StdDev: 0.00111134
+[INFO] [MatrixMultiplication] Finished serial benchmark
+[INFO] ==============================================================
++ for b in ${benchmarks[@]}
++ result_folder=work_results_offload/clang_results/wave
++ mkdir -p work_results_offload/clang_results/wave
++ ./build/OpenMPOffloadBench offloading_descriptors/wave.json work_results_offload/clang_results/wave/out.csv
+[INFO] Starting benchmark engine!
+[INFO] Executing following benchmarks:
+[INFO]  	- WaveEquation
+[INFO]  	- WaveEquation
+[INFO]  	- WaveEquation
+[INFO]  	- WaveEquation
+[INFO]  	- WaveEquation
+[INFO]  	- WaveEquation
+[INFO] [WaveEquation] Initializing benchmark
+[INFO] M:1000 N:1000 K:10 
+[INFO] [WaveEquation] Starting benchmark
+[INFO] Offload Warmup:5 Rounds: 100 Time: 1.15501 Mean: 0.01155 StdDev: 0.000762561
+[INFO] [WaveEquation] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 100 Time: 0.991857 Mean: 0.0099183 StdDev: 9.50361e-05
+[INFO] [WaveEquation] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [WaveEquation] Initializing benchmark
+[INFO] M:1000 N:1000 K:100 
+[INFO] [WaveEquation] Starting benchmark
+[INFO] Offload Warmup:5 Rounds: 30 Time: 0.906145 Mean: 0.0302047 StdDev: 9.55889e-05
+[INFO] [WaveEquation] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 30 Time: 3.17399 Mean: 0.105799 StdDev: 0.000532158
+[INFO] [WaveEquation] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [WaveEquation] Initializing benchmark
+[INFO] M:2500 N:2500 K:10 
+[INFO] [WaveEquation] Starting benchmark
+[INFO] Offload Warmup:5 Rounds: 30 Time: 2.15804 Mean: 0.0719345 StdDev: 0.00880968
+[INFO] [WaveEquation] Finished parallel benchmark
+[INFO] Serial Warmup:5 Rounds: 30 Time: 2.93862 Mean: 0.0979536 StdDev: 0.000282825
+[INFO] [WaveEquation] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [WaveEquation] Initializing benchmark
+[INFO] M:2500 N:2500 K:100 
+[INFO] [WaveEquation] Starting benchmark
+[INFO] Offload Warmup:1 Rounds: 10 Time: 1.44504 Mean: 0.144504 StdDev: 0.00426783
+[INFO] [WaveEquation] Finished parallel benchmark
+[INFO] Serial Warmup:1 Rounds: 10 Time: 10.7796 Mean: 1.07796 StdDev: 0.0103164
+[INFO] [WaveEquation] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [WaveEquation] Initializing benchmark
+[INFO] M:5000 N:5000 K:10 
+[INFO] [WaveEquation] Starting benchmark
+[INFO] Offload Warmup:1 Rounds: 20 Time: 5.44292 Mean: 0.272146 StdDev: 0.00225419
+[INFO] [WaveEquation] Finished parallel benchmark
+[INFO] Serial Warmup:1 Rounds: 20 Time: 8.17286 Mean: 0.408643 StdDev: 0.0146691
+[INFO] [WaveEquation] Finished serial benchmark
+[INFO] ==============================================================
+[INFO] [WaveEquation] Initializing benchmark
+[INFO] M:5000 N:5000 K:100 
+[INFO] [WaveEquation] Starting benchmark
+[INFO] Offload Warmup:1 Rounds: 5 Time: 2.48555 Mean: 0.497111 StdDev: 0.0114955
+[INFO] [WaveEquation] Finished parallel benchmark
+[INFO] Serial Warmup:1 Rounds: 5 Time: 22.2919 Mean: 4.45838 StdDev: 0.0234892
+[INFO] [WaveEquation] Finished serial benchmark
+[INFO] ==============================================================
